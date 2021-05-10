@@ -29,7 +29,7 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-link is-outlined">Sign up</a>
+                    <a href="{{ route('register.index') }}" class="button is-link is-outlined">Sign up</a>
                     <a href="{{ route('login.index') }}" class="button is-primary">Log in</a>
                 </div>
             </div>

@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+.navigation {
+    margin: 0 .5em;
+}
+
+.navigation .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navigation .navbar-menu .field {
+    margin-bottom: 0;
+}
+
+.field .search {
+    width: 1280px;
+    border-radius: 7px;
+}

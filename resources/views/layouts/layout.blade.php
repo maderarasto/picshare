@@ -4,9 +4,9 @@
     <header>
         @include('subs.navigation')
     </header>
-    <main>
+    <div class="container">
         @yield('content')
-    </main>
+    </div>
     <footer>
 
     </footer>

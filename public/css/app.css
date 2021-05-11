@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+/** Navigation **/
+.navigation {
+    margin: 0 .5em;
+}
+
+.navigation .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navigation .navbar-menu .field {
+    margin-bottom: 0;
+}
+
+.field .search {
+    width: 640px;
+    border-radius: 7px;
+}
+
+/** Layout **/
+.container {
+    min-height: 100vh;
+}
+
+/** Login Page **/
+.auth-container {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.auth-container h1 {
+    text-align: center;
+    font-size: 64pt !important;
+    color: white !important;
+}
+
+.auth-container .auth-card {
+    width: 400px;
+    min-height: 200px;
+}
+

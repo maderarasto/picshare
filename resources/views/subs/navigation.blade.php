@@ -29,8 +29,14 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a href="{{ route('register.index') }}" class="button is-link is-outlined">Sign up</a>
-                    <a href="{{ route('login.index') }}" class="button is-primary">Log in</a>
+                    @guest
+                    <a href="{{ route('register.show') }}" class="button is-link is-outlined">Sign up</a>
+                    <a href="{{ route('login.show') }}" class="button is-primary">Log in</a>
+                    @endguest
+                    @auth
+                    <a href="#" class="button is-primary">Profile</a>
+                    <a href="{{ route('logout') }}" class="button is-link">Log Out</a>
+                    @endauth
                 </div>
             </div>
         </div>

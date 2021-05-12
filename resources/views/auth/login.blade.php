@@ -8,22 +8,32 @@
                 <div class="card-content">
                     <div class="content">
                         <h3 class="subtitle has-text-centered">Login</h3>
-                        <form>
+                        @if (session('message'))
+                            <div class="notification is-primary is-light">
+                                {{ session('message') }}
+                            </div>
+                        @endif
+                        <form method="post" action="{{ route('login.submit') }}">
+                            {{ csrf_field() }}
                             <div class="field">
                                 <label for="field-username" class="label">Username:</label>
-                                <input type="text" id="field-username" class="input is-small" />
+                                <input type="text" id="field-username" name="username" class="input is-small" value="{{ old('username') }}" />
+                                @error('username')
+                                    <small class="has-text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="field">
                                 <label for="field-password" class="label">Password:</label>
-                                <input type="password" id="field-password" class="input is-small" />
+                                <input type="password" id="field-password" name="password" class="input is-small" />
+                                @error('password')
+                                <small class="has-text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
-                            <div class="level">
-                                <span class="has-text-danger">Your credentials are incorrect.</span>
-                            </div>
+
                             <div class="level">
                                 <a href="#" class="level-left">Forgot password?</a>
                                 <div class="level-right">
-                                    <a href="{{ route('register.index') }}" class="button is-small is-info is-outlined mr-1">Sign up</a>
+                                    <a href="{{ route('register.show') }}" class="button is-small is-info is-outlined mr-1">Sign up</a>
                                     <button type="submit" class="button is-primary is-small">Log In</button>
                                 </div>
                             </div>

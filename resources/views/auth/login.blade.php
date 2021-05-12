@@ -8,6 +8,11 @@
                 <div class="card-content">
                     <div class="content">
                         <h3 class="subtitle has-text-centered">Login</h3>
+                        @if (session('message'))
+                            <div class="notification is-primary is-light">
+                                {{ session('message') }}
+                            </div>
+                        @endif
                         <form method="post" action="{{ route('login.submit') }}">
                             {{ csrf_field() }}
                             <div class="field">

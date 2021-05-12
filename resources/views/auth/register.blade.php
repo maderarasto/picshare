@@ -40,7 +40,7 @@
                             <div class="level">
                                 <div class="level-left"></div>
                                 <div class="level-right">
-                                    <a href="{{ route('login.index') }}" class="button is-small is-info is-outlined mr-1">Log In</a>
+                                    <a href="{{ route('login.show') }}" class="button is-small is-info is-outlined mr-1">Log In</a>
                                     <button type="submit" class="button is-primary is-small">Sign Up</button>
                                 </div>
                             </div>

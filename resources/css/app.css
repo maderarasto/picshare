@@ -46,3 +46,9 @@
     width: 400px;
     min-height: 200px;
 }
+
+.auth-container .admin-subtitle {
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: white;
+}

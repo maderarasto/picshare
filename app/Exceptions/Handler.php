@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -38,4 +39,22 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        $guard = data_get($exception->guards(), 0);
+
+        switch ($guard)
+        {
+            case 'admin':
+                $routeName = 'admin.login.show';
+                break;
+            default:
+                $routeName = 'login.show';
+        }
+
+        return redirect()->guest(route($routeName));
+    }
+
+
 }

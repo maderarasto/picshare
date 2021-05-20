@@ -9,44 +9,37 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
-class LoginController extends Controller
+class AdminLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest')->except(['logout']);
+        $this->middleware('guest:admin');
     }
 
     public function showLogin() : View
     {
-        return view('auth.login');
+        return view('auth.admin-login');
     }
 
     public function login(Request $request) : RedirectResponse
     {
-        Log::alert('LOGIN USER');
-        $credentials = $request->only(['username', 'password']);
+        Log::alert('LOGIN ADMIN');
+        $credentials = $request->only([ 'username', 'password' ]);
 
         $this->validate($request, [
             'username' => 'required',
             'password' => 'required'
         ]);
 
-        if (Auth::guard()->attempt($credentials))
+        if (Auth::guard('admin')->attempt($credentials))
         {
-            return redirect()->back();
+            return redirect()->intended(route('admin.dashboard'));
         }
 
         return redirect()->back()
             ->withInput($request->input())
             ->withErrors([
-               'username' => 'The given credentials do not match with our records'
+                'username' => 'The credentials don\'t match with our records.'
             ]);
-    }
-
-    public function logout()
-    {
-        Auth::logout();
-
-        return redirect()->back();
     }
 }
